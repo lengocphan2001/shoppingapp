@@ -10,7 +10,7 @@ export const fetchProducts = () => {
     const userId = getState().auth.userId;
     try {
       const response = await fetch(
-        "https://the-shopping-app-af4ed.firebaseio.com/products.json"
+        "https://myapp-26cee-default-rtdb.firebaseio.com/products.json"
       );
 
       if (!response.ok) {
@@ -48,7 +48,7 @@ export const deleteProduct = productId => {
   return async (dispatch, getState) => {
     const token = getState().auth.token;
     const response = await fetch(
-      `https://the-shopping-app-af4ed.firebaseio.com/products/${productId}.json?auth=${token}`,
+      `https://myapp-26cee-default-rtdb.firebaseio.com/products/${productId}.json?auth=${token}`,
       {
         method: "DELETE"
       }
@@ -66,7 +66,7 @@ export const createProduct = (title, imageUrl, description, price) => {
     const token = getState().auth.token;
     const userId = getState().auth.userId;
     const response = await fetch(
-      `https://the-shopping-app-af4ed.firebaseio.com/products.json?auth=${token}`,
+      `https://myapp-26cee-default-rtdb.firebaseio.com/products.json?auth=${token}`,
       {
         method: "POST",
         headers: {
@@ -102,7 +102,7 @@ export const updateProduct = (id, title, imageUrl, description) => {
   return async (dispatch, getState) => {
     const token = getState().auth.token;
     const response = await fetch(
-      `https://the-shopping-app-af4ed.firebaseio.com/products/${id}.json?auth=${token}`,
+      `https://myapp-26cee-default-rtdb.firebaseio.com/products/${id}.json?auth=${token}`,
       {
         method: "PATCH",
         headers: {
